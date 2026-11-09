@@ -37,7 +37,7 @@ import CtaGroup from './CtaGroup.astro';
           src={heroImg}
           alt="Анастасия Прозорова, психолог, Бийск"
           widths={[520, 780, 1040]}
-          sizes="(max-width: 860px) 320px, 440px"
+          sizes="(max-width: 600px) 360px, (max-width: 1024px) 520px, 440px"
           format="webp"
           quality={88}
           loading="eager"
@@ -45,7 +45,7 @@ import CtaGroup from './CtaGroup.astro';
         />
         <div class="badge">
           <span class="badge-top">Опыт более</span>
-          <span class="badge-big">5000&nbsp;часов</span>
+          <span class="badge-big">5&nbsp;000&nbsp;часов</span>
         </div>
       </div>
     </figure>
@@ -149,7 +149,7 @@ import CtaGroup from './CtaGroup.astro';
   }
   .badge {
     position: absolute;
-    left: -14px;
+    left: 18px;
     bottom: 32px;
     background: #ffffff;
     padding: 16px 32px 18px 32px;
@@ -195,6 +195,11 @@ import CtaGroup from './CtaGroup.astro';
   @media (max-width: 600px) {
     .frame {
       max-width: 360px;
+    }
+  }
+  @media (max-width: 480px) {
+    .ctas > .btn-ghost {
+      display: none;
     }
   }
 </style>
