@@ -1,0 +1,179 @@
+---
+import { Image } from 'astro:assets';
+import aboutImg from '../assets/photos/about.jpg';
+import { bioFacts, education } from '../data/master';
+---
+
+<section id="about">
+  <div class="wrap grid">
+    <figure class="photo" data-reveal>
+      <Image
+        src={aboutImg}
+        alt="Анастасия Прозорова в кабинете"
+        widths={[480, 720, 960]}
+        sizes="(max-width: 860px) 280px, 420px"
+        format="webp"
+        quality={88}
+        loading="lazy"
+        class="photo-img"
+      />
+    </figure>
+
+    <div class="copy" data-reveal data-reveal-delay="140">
+      <span class="section-eyebrow">Обо мне</span>
+      <h2>
+        Психолог-консультант <em>и&nbsp;гештальт‑терапевт.</em>
+      </h2>
+
+      <p class="lead">
+        Здравствуйте, меня зовут Анастасия Игоревна. Работаю как
+        с&nbsp;отношениями (детско-родительскими, партнёрскими, семейными,
+        партнёрскими в&nbsp;бизнесе и&nbsp;отношениями с&nbsp;самим собой),
+        так и&nbsp;с&nbsp;клиническими случаями совместно с&nbsp;психиатром.
+      </p>
+
+      <p>
+        В&nbsp;своей работе помогаю клиентам видеть взаимосвязи человека,
+        его окружения и&nbsp;характер взаимоотношений между ними.
+        Применяю <strong>гештальт‑подход</strong> и&nbsp;техники
+        интегративного подхода. Высшее образование получила в&nbsp;2016 году
+        и&nbsp;с&nbsp;тех пор постоянно обучаюсь новому.
+      </p>
+
+      <dl class="facts">
+        {bioFacts.map((f) => (
+          <div>
+            <dt>{f.value}</dt>
+            <dd>{f.label}</dd>
+          </div>
+        ))}
+      </dl>
+
+      <ul class="edu">
+        {education.map((e) => (
+          <li>
+            <span class="edu-year">{e.year}</span>
+            <span class="edu-body">
+              <span class="edu-title">{e.title}</span>
+              <span class="edu-org">{e.org}</span>
+            </span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</section>
+
+<style>
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: clamp(32px, 6vw, 80px);
+    align-items: center;
+  }
+  .photo {
+    margin: 0;
+  }
+  .photo-img {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    border-radius: var(--radius-lg);
+    display: block;
+  }
+  h2 {
+    margin-bottom: 28px;
+  }
+  h2 em {
+    font-style: italic;
+    color: var(--accent);
+  }
+  .lead {
+    font-size: 18px;
+    color: var(--ink);
+    margin-bottom: 18px;
+    line-height: 1.6;
+  }
+  .copy p {
+    color: var(--ink-muted);
+    margin-bottom: 18px;
+    font-size: 17px;
+    line-height: 1.65;
+  }
+  .copy p strong {
+    color: var(--ink);
+    font-weight: 500;
+  }
+
+
+  .edu {
+    list-style: none;
+    padding: 0;
+    margin: 32px 0 0;
+    display: grid;
+    gap: 14px;
+  }
+  .edu li {
+    display: grid;
+    grid-template-columns: 56px 1fr;
+    gap: 16px;
+    align-items: baseline;
+  }
+  .edu-year {
+    font-family: var(--font-serif);
+    font-size: 15px;
+    color: var(--accent);
+  }
+  .edu-body {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .edu-title {
+    font-size: 15px;
+    color: var(--ink);
+    line-height: 1.4;
+  }
+  .edu-org {
+    font-size: 13px;
+    color: var(--ink-muted);
+  }
+  .facts {
+    margin: 36px 0 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    padding-top: 32px;
+    border-top: 1px solid var(--line);
+  }
+  .facts div {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .facts dt {
+    font-family: var(--font-serif);
+    font-size: 26px;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+    line-height: 1.05;
+  }
+  .facts dd {
+    margin: 0;
+    font-size: 13px;
+    color: var(--ink-muted);
+  }
+
+  @media (max-width: 860px) {
+    .grid {
+      grid-template-columns: 1fr;
+    }
+    .photo {
+      max-width: 280px;
+    }
+    .facts {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+  }
+</style>
