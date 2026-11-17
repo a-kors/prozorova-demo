@@ -89,10 +89,13 @@ const sw = "1.6";
 </footer>
 
 <style>
+  /* футер в цвете, которым заканчивается финал (сфера заливает экран): шва нет */
   footer {
-    background: var(--bg);
-    padding: 72px 0 32px;
-    border-top: 1px solid var(--line);
+    background: #e9b7bd;
+    padding: 48px 0 32px;
+  }
+  footer .hair-line {
+    background: rgba(31, 25, 21, 0.14);
   }
   .top {
     display: grid;
@@ -112,7 +115,7 @@ const sw = "1.6";
     font-size: 12px;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: var(--ink-soft);
+    color: #7a5862;
     margin-bottom: 8px;
   }
   .line,
@@ -136,15 +139,15 @@ const sw = "1.6";
   }
   .ico {
     flex-shrink: 0;
-    color: var(--ink-soft);
+    color: #7a5862;
     transition: color 0.18s ease;
   }
   .line.muted,
   footer .line.muted {
-    color: var(--ink-muted);
+    color: #533b42;
   }
   .line.muted .ico {
-    color: var(--ink-soft);
+    color: #7a5862;
   }
   .bottom {
     padding-top: 28px;
